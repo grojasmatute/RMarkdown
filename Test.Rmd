@@ -1,0 +1,110 @@
+---
+title: '**Introduction to R Markdown**'
+author: "Gustavo Rojas-Matute"
+date: "10/8/2019"
+output: word_document
+bibliography: bibtest.bib
+institution: "American University"
+abstract: " This tutorial provides students with basic tools needed to work with R Markdown."
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Introduction 
+
+R Markdown is very versatil tool for researchers since allows the combination of codes and narratives to produce high quality reports in different formats including: pdf, html, word, beamer presentations, etc.
+
+The best way to read this tutorial is open the R Markdown file and click "Knit", then read the R Markdown file and the html document at the same time. 
+
+## R Markdown Definition
+
+Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. 
+
+## Installation
+
+Like other R packages, the installation of R Markdown is as usual:
+
+install.packages("rmarkdown")
+
+
+## Starting R Markdown in R Studio
+
+Go to RStudio: File -> New File -> R Markdown
+
+## Types of Content
+
+* A YAML header surrounded by three dashes "---", where the author can specify: title, author, institution, date, abstract, and type of documment or output(word_document, html_document, pdf_document, etc). 
+
+For example:
+---s 
+title: "R Markdown Tutorial"
+output: html_document 
+---s
+
+In the header you can also specify the BibTex file link to bibliography, and then cite the reference as usual, for example: @xie2019. Be sure that "bookdown" package is installed. 
+
+* R code chunks surrounded bynthree backticks like "```". The lenguage of the code is specified inside the curly brackets: "{R}"
+
+
+
+## Embeding Codes
+
+You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+## Regressions
+Regression 1
+
+```{r, echo=FALSE}
+reg1 = lm(pressure ~ temperature , data = pressure)
+summary(reg1)
+require(memisc)
+```
+
+
+## Other regression
+Regression 2
+```{r , echo=FALSE}
+reg = lm(dist ~ speed , data = cars)
+summary(reg)
+plot(reg)
+abline(reg)
+```
+
+## ggplot2
+
+ggplot2 
+```{r ggplot2-chart, echo=FALSE}
+library(ggplot2)
+ggplot(cars, aes(x=speed, y =dist)) + geom_point()+
+  theme_bw()+
+  labs(x = "speed", y = "Dist")
+```
+
+## Excercises
+
+1. Go to the header and replace "html_document" by "word_document". Repeat it with "pdf_document" and "beamer_presentation".
+
+
+
+
+## **References**
+
+
